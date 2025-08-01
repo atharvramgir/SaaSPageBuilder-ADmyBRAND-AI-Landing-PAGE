@@ -28,6 +28,9 @@ export const insertContactSchema = createInsertSchema(contactSubmissions).pick({
   email: true,
   company: true,
   message: true,
+}).extend({
+  company: z.string().optional(),
+  message: z.string().optional(),
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;

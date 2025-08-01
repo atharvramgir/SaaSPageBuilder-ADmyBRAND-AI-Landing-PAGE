@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
-import { ReactNode } from "react";
+import { ReactNode, HTMLAttributes } from "react";
 
-interface GlassmorphismCardProps {
+interface GlassmorphismCardProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   className?: string;
   variant?: "default" | "dark";
@@ -10,7 +10,8 @@ interface GlassmorphismCardProps {
 export function GlassmorphismCard({ 
   children, 
   className, 
-  variant = "dark" 
+  variant = "dark",
+  ...props
 }: GlassmorphismCardProps) {
   return (
     <div
@@ -19,6 +20,7 @@ export function GlassmorphismCard({
         variant === "dark" ? "glass-morphism-dark" : "glass-morphism",
         className
       )}
+      {...props}
     >
       {children}
     </div>
